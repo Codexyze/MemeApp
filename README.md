@@ -23,16 +23,3 @@ A simple Android app built with **Kotlin**, **Jetpack Compose**, and **Retrofit*
 
 ---
 
-## 🖼️ Adjusting Image Display  
-To prevent oversized images, make use of Jetpack Compose's `ContentScale` options. Here's an example used in the app:  
-
-```kotlin
-AsyncImage(
-    model = memeImageUrl,
-    contentDescription = "Meme Image",
-    modifier = Modifier
-        .fillMaxWidth() // Adjust width to fit the screen
-        .padding(8.dp),
-    contentScale = ContentScale.Fit // Ensures the image fits within the bounds without cropping
-)
-
