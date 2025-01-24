@@ -1,4 +1,5 @@
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -20,7 +21,9 @@ fun Screen(memeViewModel: MemeViewModel) {
 
     // Display memes if the list is not empty
     if (memeList != null && memeList!!.memes.isNotEmpty()) {
-        LazyColumn(modifier = Modifier.fillMaxSize().padding(16.dp)) {
+        LazyColumn(modifier = Modifier.fillMaxSize().padding(16.dp).clickable {
+            memeViewModel.fetchAllMeme()
+        }) {
             items(memeList!!.memes) { memeItem ->
                 Column {
                     Image(
