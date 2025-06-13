@@ -15,6 +15,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.memeapp.Utility.WindowType
+import com.example.memeapp.Utility.rememberWindowType
 import com.example.memeapp.ui.theme.MemeAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,7 +32,21 @@ class MainActivity : ComponentActivity() {
             MemeAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Box(modifier = Modifier.padding(innerPadding)) {
-                        Screen(memeViewModel = memeViewModel)
+                        val screenSize = rememberWindowType()
+                        when{
+                            screenSize.screenWidthType == WindowType.COMPACT->{
+                                Screen(memeViewModel = memeViewModel)
+                            }
+                            screenSize.screenWidthType== WindowType.MEDIUM->{
+                                LargeScreen(memeViewModel = memeViewModel)
+                            }
+                            screenSize.screenWidthType == WindowType.EXPANDED->{
+                                LargeScreen(memeViewModel = memeViewModel)
+                            }
+                            else->{
+                                LargeScreen(memeViewModel = memeViewModel)
+                            }
+                        }
                     }
                 }
             }
