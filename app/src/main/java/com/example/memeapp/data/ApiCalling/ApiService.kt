@@ -1,6 +1,6 @@
-package com.example.memeapp
+package com.example.memeapp.data.ApiCalling
 
-import Meme
+import com.example.memeapp.data.Remote.Meme
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET

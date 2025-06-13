@@ -1,8 +1,11 @@
+package com.example.memeapp.Presentation.Viewmodel
+
 import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.memeapp.RetrofitInstance
+import com.example.memeapp.data.ApiCalling.RetrofitInstance
+import com.example.memeapp.data.Remote.Meme
 import kotlinx.coroutines.launch
 
 class MemeViewModel : ViewModel() {

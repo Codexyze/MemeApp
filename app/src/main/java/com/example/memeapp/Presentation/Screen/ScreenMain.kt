@@ -21,8 +21,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat.startActivity
 import coil.compose.rememberImagePainter
+import com.example.memeapp.Presentation.Viewmodel.MemeViewModel
 
 
 @Composable
@@ -58,13 +58,13 @@ fun Screen(memeViewModel: MemeViewModel) {
                     ) {
                         Image(
                             painter = rememberImagePainter(data = memeItem.url),
-                            contentDescription = "Meme Image",
+                            contentDescription = "com.example.memeapp.data.Remote.Meme Image",
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(250.dp)
                                 .clip(RoundedCornerShape(12.dp))
                                 .clickable {
-                                    val message = "I love this Meme! Check it out here: ${memeItem.url}"
+                                    val message = "I love this com.example.memeapp.data.Remote.Meme! Check it out here: ${memeItem.url}"
                                     val shareIntent = Intent(Intent.ACTION_SEND).apply {
                                         type = "text/plain"
                                         putExtra(Intent.EXTRA_TEXT, message)

@@ -1,5 +1,5 @@
 package com.example.memeapp
-import MemeViewModel
+import com.example.memeapp.Presentation.Viewmodel.MemeViewModel
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -50,14 +50,14 @@ fun LargeScreen(memeViewModel: MemeViewModel) {
                     Column(modifier = Modifier.padding(12.dp)) {
                         Image(
                             painter = rememberImagePainter(data = memeItem.url),
-                            contentDescription = "Meme Image",
+                            contentDescription = "com.example.memeapp.data.Remote.Meme Image",
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(200.dp)
                                 .clip(RoundedCornerShape(12.dp))
                                 .clickable {
                                     val message =
-                                        "I love this Meme! Check it out here: ${memeItem.url}"
+                                        "I love this com.example.memeapp.data.Remote.Meme! Check it out here: ${memeItem.url}"
                                     val shareIntent = Intent(Intent.ACTION_SEND).apply {
                                         type = "text/plain"
                                         putExtra(Intent.EXTRA_TEXT, message)

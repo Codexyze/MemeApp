@@ -1,3 +1,5 @@
+package com.example.memeapp.data.Remote
+
 data class MemeX(
     val author: String,
     val nsfw: Boolean,
