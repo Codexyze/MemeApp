@@ -15,7 +15,9 @@ import com.example.memeapp.Presentation.Viewmodel.MemeViewModel
 import com.example.memeapp.Utility.WindowType
 import com.example.memeapp.Utility.rememberWindowType
 import com.example.memeapp.ui.theme.MemeAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private val memeViewModel: MemeViewModel by viewModels()
 

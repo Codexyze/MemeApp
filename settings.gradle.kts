@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Meme App"
 include(":app")
- 
+include(":data")

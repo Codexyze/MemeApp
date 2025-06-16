@@ -1,27 +1,24 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
+
     // Existing plugins
     alias(libs.plugins.compose.compiler)
+
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
+    kotlin("plugin.serialization") version "2.1.10"
 }
 
 android {
-    namespace = "com.example.memeapp"
+    namespace = "com.example.data"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.memeapp"
         minSdk = 26
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -43,14 +40,6 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
 }
 
 dependencies {
@@ -70,28 +59,21 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    // Retrofit core library
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
 
-// Gson converter for JSON parsing
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    // Coil for Jetpack Compose
-    implementation ("io.coil-kt:coil-compose:2.4.0")
-
-    //Hilt
+    //Ktor
+    implementation("io.ktor:ktor-client-core:2.3.5") // Core Ktor client
+    implementation("io.ktor:ktor-client-cio:2.3.5")  // For making network requests
+    implementation("io.ktor:ktor-client-content-negotiation:2.3.5") // For automatic JSON serialization
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.5") // Kotlinx serialization support
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0") // JSON parser
 
     //Hilt
     implementation("com.google.dagger:hilt-android:2.51.1")
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
     //Most Error making Library
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
-
-    //lets add module
-    implementation(project(":data"))
-
 }
 
 kapt {
     correctErrorTypes = true
 }
-
