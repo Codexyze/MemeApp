@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.example.memeapp.LargeScreen
+import com.example.memeapp.MutiModuleSample.SimpleMultiModularScreen
 import com.example.memeapp.Presentation.Viewmodel.MemeViewModel
 import com.example.memeapp.Utility.WindowType
 import com.example.memeapp.Utility.rememberWindowType
@@ -49,6 +50,8 @@ class MainActivity : ComponentActivity() {
                                 LargeScreen(memeViewModel = memeViewModel)
                             }
                         }
+
+                        //SimpleMultiModularScreen()
                     }
                 }
             }

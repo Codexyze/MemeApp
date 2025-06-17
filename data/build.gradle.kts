@@ -72,6 +72,9 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
     //Most Error making Library
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+
+    //call domain
+    implementation(project(":domain"))
 }
 
 kapt {
