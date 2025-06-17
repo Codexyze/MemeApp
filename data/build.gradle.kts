@@ -11,7 +11,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.data"
+    namespace = "com.nutrino.data"
     compileSdk = 34
 
     defaultConfig {

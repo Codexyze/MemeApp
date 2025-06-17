@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.domain"
+    namespace = "com.nutrino.domain"
     compileSdk = 34
 
     defaultConfig {

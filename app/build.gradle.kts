@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.memeapp"
+    namespace = "com.nutino.memeapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.memeapp"
+        applicationId = "com.nutino.memeapp"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
