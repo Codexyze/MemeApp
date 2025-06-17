@@ -70,11 +70,8 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    // Retrofit core library
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    
 
-// Gson converter for JSON parsing
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     // Coil for Jetpack Compose
     implementation ("io.coil-kt:coil-compose:2.4.0")
 

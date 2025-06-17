@@ -1,5 +1,4 @@
 package com.example.memeapp.Presentation.Screen
-import com.example.memeapp.Presentation.Viewmodel.MemeViewModel
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -24,91 +23,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.memeapp.Presentation.Viewmodel.MultiModularViewModel
 
-//
-//@Composable
-//fun LargeScreen(memeViewModel: MemeViewModel) {
-//    val memeList by memeViewModel.memeList
-//    val errorMessage by memeViewModel.errorMessage
-//    val context = LocalContext.current
-//
-//    if (memeList != null && memeList!!.memes.isNotEmpty()) {
-//        LazyVerticalGrid(
-//            columns = GridCells.Fixed(2), // 2 columns for large screens
-//            modifier = Modifier
-//                .fillMaxSize()
-//                .padding(16.dp),
-//            verticalArrangement = Arrangement.spacedBy(16.dp),
-//            horizontalArrangement = Arrangement.spacedBy(16.dp)
-//        ) {
-//            items(memeList!!.memes) { memeItem ->
-//                Card(
-//                    modifier = Modifier
-//                        .fillMaxWidth()
-//                        .clickable {
-//                            memeViewModel.fetchAllMeme()
-//                        },
-//                    elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
-//                    shape = RoundedCornerShape(16.dp)
-//                ) {
-//                    Column(modifier = Modifier.padding(12.dp)) {
-//                        Image(
-//                            painter = rememberImagePainter(data = memeItem.url),
-//                            contentDescription = "com.example.memeapp.data.Remote.Meme Image",
-//                            modifier = Modifier
-//                                .fillMaxWidth()
-//                                .height(200.dp)
-//                                .clip(RoundedCornerShape(12.dp))
-//                                .clickable {
-//                                    val message =
-//                                        "I love this com.example.memeapp.data.Remote.Meme! Check it out here: ${memeItem.url}"
-//                                    val shareIntent = Intent(Intent.ACTION_SEND).apply {
-//                                       this.setType("text/plain")
-//                                        putExtra(Intent.EXTRA_TEXT, message)
-//                                    }
-//                                    try {
-//                                        context.startActivity(Intent.createChooser(shareIntent, "Share via"))
-//                                    } catch (e: Exception) {
-//                                        Toast.makeText(context, "Error Sharing", Toast.LENGTH_SHORT).show()
-//                                    }
-//                                },
-//                            contentScale = ContentScale.Crop
-//                        )
-//
-//                        Spacer(modifier = Modifier.height(10.dp))
-//
-//                        Text(
-//                            text = memeItem.title,
-//                            style = MaterialTheme.typography.titleMedium,
-//                            fontWeight = FontWeight.Bold,
-//                            maxLines = 2,
-//                            overflow = TextOverflow.Ellipsis
-//                        )
-//
-//                        Spacer(modifier = Modifier.height(4.dp))
-//
-//                        Text(
-//                            text = "Posted by: ${memeItem.author}",
-//                            style = MaterialTheme.typography.bodySmall,
-//                            color = Color.Gray
-//                        )
-//                    }
-//                }
-//            }
-//        }
-//
-//    } else if (errorMessage.isNotEmpty()) {
-//        Text(
-//            text = "Error: $errorMessage",
-//            color = Color.Red,
-//            modifier = Modifier.padding(16.dp)
-//        )
-//    } else {
-//        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-//            CircularProgressIndicator()
-//        }
-//    }
-//}
-//
 @Composable
 fun LargeScreen(multiModularViewModel: MultiModularViewModel = hiltViewModel()) {
 
@@ -163,7 +77,7 @@ fun LargeScreen(multiModularViewModel: MultiModularViewModel = hiltViewModel()) 
                                         Toast.makeText(context, "Error Sharing", Toast.LENGTH_SHORT).show()
                                     }
                                 },
-                            contentScale = ContentScale.Crop
+                            contentScale = ContentScale.Fit
                         )
 
                         Spacer(modifier = Modifier.height(10.dp))
