@@ -1,4 +1,4 @@
-package com.example.memeapp.MutiModuleSample
+package com.example.memeapp.Presentation.Viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,13 +14,20 @@ import javax.inject.Inject
 class MultiModularViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
     private val _memeState = MutableStateFlow<Meme?>(null)
     val memeState = _memeState.asStateFlow()
+    private val _errorMessageSate = MutableStateFlow<String?>(null)
+    val errorMessageSate = _errorMessageSate.asStateFlow()
 
     fun getAllmemes(){
-        viewModelScope.launch {
-            repository.getAllMemes().collect { meme->
-                _memeState.value = meme
+        try {
+            viewModelScope.launch {
+                repository.getAllMemes().collect { meme->
+                    _memeState.value = meme
+                }
             }
+        } catch (e: Exception) {
+            _errorMessageSate.value = "Error fetching data: ${e.message}"
         }
+
     }
 
 }
