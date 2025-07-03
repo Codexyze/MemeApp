@@ -9,7 +9,7 @@ plugins {
 
 android {
     namespace = "com.nutino.memeapp"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.nutino.memeapp"
